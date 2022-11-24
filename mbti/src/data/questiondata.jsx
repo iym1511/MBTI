@@ -1,0 +1,42 @@
+export const QuestionData = [
+    {
+        id:1,
+        title: "문제1",
+        answera: "목재",
+        answerb: "철근",
+        answerc: "고무",
+        answerd: "유리",
+        answere: "시멘트",
+        type: "EI",
+    },
+    {
+        id:2,
+        title: "문제2",
+        answera: "애플",
+        answerb: "삼성",
+        answerc: "lG",
+        answerd: "스카이",
+        answere: "모토로라",
+        type: "EI",
+    },
+    {
+        id:3,
+        title: "문제3",
+        answera: "아이폰13",
+        answerb: "아이폰14",
+        answerc: "갤럭시 s22 Ultra",
+        answerd: "갤럭시 s22",
+        answere: "아이폰14 pro",
+        type: "EI",
+    },
+    {
+        id:4,
+        title: "문제4",
+        answera: "부산",
+        answerb: "여수",
+        answerc: "서울",
+        answerd: "인천",
+        answere: "대전",
+        type: "EI",
+    }
+]
