@@ -1,0 +1,48 @@
+.Wrapper{
+    background-color: rgb(255, 250, 220);
+    width: 500px;
+    height: 500px;
+    margin: 150px auto;
+}
+
+.Header{
+    font-family: 'Humanbumsuk';
+    font-size: 40pt;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Contents{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Title{
+    font-family: 'Humanbumsuk';
+    font-size: 30pt;
+    margin-top: 40px;
+}
+
+.LogoImage{
+    margin-top: 10px;
+}
+
+.Desc{
+    font-family: 'Humanbumsuk';
+    font-size: 30pt;
+    margin-top: 20px;
+}
+.ReStartBtn{
+    width: 20%;
+    min-height: 10px;
+    font-size: 15pt;
+    margin-top: 20px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    background-color: rgba(240, 248, 255, 0);
+}
+
+

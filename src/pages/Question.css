@@ -1,0 +1,34 @@
+.Wrapper{
+    background-color: rgb(255, 250, 220);
+    width: 500px;
+    height: 500px;
+    margin: 150px auto;
+}
+
+.Title{
+    font-size: 40pt;
+    text-align: center;
+    font-family: "Humanbumsuk";
+}
+
+.PrgressBar {
+    margin-top: 30px;
+}
+
+.QBtn{
+    width: 20%;
+    min-height: 10px;
+    font-size: 15pt;
+    margin-top: 20px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    background-color: rgba(240, 248, 255, 0);
+}
+
+.ButtonGroup{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Humanbumsuk";
+}
