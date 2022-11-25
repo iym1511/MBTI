@@ -17,9 +17,10 @@ const Result = () => {
     useEffect(()=>{
         const result = data.state.result.find((s) => s.best === mbti);
         setResultData(result);
+        
     },[mbti])
-
-
+    
+    
 
     return (  
             <div className="Wrapper">
@@ -27,10 +28,10 @@ const Result = () => {
             <div className='Contents'>
                 <div className='Title'>결과 보기</div>
                 <div className='LogoImage'>
-                    <img src={resultData.image} />
+                    <img src={resultData.image} width={300} />
                 </div>
-            <div className='Desc'>나에 어울리는 업체는 {resultData.name}입니다</div>
-            <button className='ReStartBtn' onClick={()=>navigate('/')}>테스트 다시하기</button>
+            <div className='Desc'>나에게 어울리는 업체 "{resultData.name}"</div>
+            <button className='ReStartBtn' onClick={()=>navigate('/')}>견적 다시짜기</button>
             </div>
         </div>
     );

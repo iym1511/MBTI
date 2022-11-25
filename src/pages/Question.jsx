@@ -7,42 +7,45 @@ import DataContext from '../data/DataContext';
 
 
 const Question = () => {
-    const data = useContext(DataContext);
+    const {state, action} = useContext(DataContext);
     // 
     const [questionNo, setQuestionNo] = useState(0);
     const navigate = useNavigate();
-    const [totalScore, setTotalScore] = useState([
-        {id: "EI", score: 0},
-        {id: "SN", score: 0},
-        {id: "TF", score: 0},
-        {id: "JP", score: 0},
-    ])
 
-    let dastQu = data.state.question[questionNo];
+    // const [totalScore, setTotalScore] = useState([
+    //     {id: "EI", score: 0},
+    //     {id: "SN", score: 0},
+    //     {id: "TF", score: 0},
+    // ])
 
+    let dastQu = state.question[questionNo];
+
+    // 진혜
+    const [rName, setRName] = useState(null);
+    const [answer, setAnswer] = useState(null);
+    const [companyIndex, setCompanyIndex] = useState([]);
     
 
-    console.log('totalScore', totalScore);
+    const QClickButton = (e) =>{
+        e.preventDefault();
 
-    const QClickButton = (no, type) =>{
-        const newScore = totalScore.map((s)=>
-            s.id === type ? {id: s.id, score: s.score + no} : s
-        );
+        const newAnswers = {
+            name: rName,
+            answer: answer
+        }
 
-        setTotalScore(newScore);
+        const addedAnswer = state.reciept.concat(newAnswers);
+        if(rName && answer){
+            action.setReciept(addedAnswer)
+        }
+
+        const newCompnies = state.result.filter((company)=>(company[rName] == companyIndex));
         
         // 정해진 문재수만큼 출력
-        if(data.state.question.length !== questionNo + 1) {
+        if(state.question.length !== questionNo + 1) {
             // 다음문제로 문제수 증가
             setQuestionNo(questionNo + 1);
         } else {   // 정해진 문재수 다음으로 넘어갔을때
-            // mbti도출
-            const mbti = newScore.reduce(
-                (acc, curr)=>    // 현재배열객체 스코어가 2보다 크면 ? 첫번째글자  : 2보다작으면 두번째글자
-                    acc + (curr.score >= 2 ? curr.id.substring(0,1) : curr.id.substring(1,2)),
-                    ""
-            );
-            console.log('mbti', mbti)
             // 결과 페이지 이동
             navigate({
                 pathname: "/result",
@@ -79,15 +82,54 @@ const Question = () => {
         //     totalScore.splice(3, 1, newObject);
         // }
 
+
+
         
     }
 
 
+    const name = ["type", "wallpaper", "sash", "floor", "veranda", "roomdoor","frontdoor", "light", "price"];
+
 
     return (  
         <div className='Wrapper'>
-            <ProgressBar striped variant="black" now={(questionNo) /data.state.question.length*100} value="50" min="0" max="100"/>
+            <ProgressBar striped variant="black" now={(questionNo) /state.question.length*100} value="50" min="0" max="100"/>
+            
             <div className='Title'>{dastQu.title}</div>
+            <form action="" onSubmit={QClickButton}>
+
+                <button className='QBtn' onClick={()=>{ 
+                    setRName("type")
+                    setAnswer(dastQu.answera)
+                    setCompanyIndex(dastQu.answera)
+                }}>{dastQu.answera}</button>
+
+                <button className='QBtn' onClick={()=>{ 
+                    setRName("type")
+                    setAnswer(dastQu.answerb)
+                    setCompanyIndex(dastQu.answerb)
+                }}>{dastQu.answerb}</button>
+
+                <button className='QBtn' onClick={()=>{ 
+                    setRName("type")
+                    setAnswer(dastQu.answerc)
+                    setCompanyIndex(dastQu.answerc)
+                }}>{dastQu.answerc}</button>
+
+                <button className='QBtn' onClick={()=>{ 
+                    setRName("type")
+                    setAnswer(dastQu.answerd)
+                    setCompanyIndex(dastQu.answerd)
+                }}>{dastQu.answera}</button>
+
+                <button className='QBtn' onClick={()=>{ 
+                    setRName("type")
+                    setAnswer(dastQu.answere)
+                    setCompanyIndex(dastQu.answere)
+                }}>{dastQu.answera}</button>
+            </form>
+
+            {/*
             <div className='ButtonGroup'>
             <button className='QBtn' onClick={()=>QClickButton(4, dastQu.type)}>{dastQu.answera}</button>
             <button className='QBtn' onClick={()=>QClickButton(3, dastQu.type)}>{dastQu.answerb}</button>
@@ -95,6 +137,9 @@ const Question = () => {
             <button className='QBtn' onClick={()=>QClickButton(1, dastQu.type)}>{dastQu.answerd}</button>
             <button className='QBtn' onClick={()=>QClickButton(0, dastQu.type)}>{dastQu.answere}</button>
             </div>
+    */}
+            
+
         </div>
     );
 }
